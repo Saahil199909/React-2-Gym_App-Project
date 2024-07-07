@@ -7,11 +7,8 @@ export default function Drag(props) {
     const [dragValue, setDragValue] = useState('hypertrophy')
 
     const handleDrag = (e, data) => {
-        console.log(data,"DDDDDDDDDDDDDDDDDDDDDDDDDDDD")
         const parentWidth = data.node.parentNode.offsetWidth;
-        console.log(parentWidth,"PPPPPPPPPPPPPPPPPPPPPPPPp")
         const thirdWidth = parentWidth / 3;
-        console.log(thirdWidth,"TTTTTTTTTTTTTTTTTTTTTTTTTTTt")
 
         if (data.x < thirdWidth - (parentWidth / 2)) {
             setDragValue('strength');
