@@ -1,4 +1,5 @@
 import React from 'react'
+import WorkoutStatic from './WorkoutStatic'
 
 export default function Workout(props) {
 
@@ -6,9 +7,11 @@ export default function Workout(props) {
 
   return (
     <div>
-        Workout
-        {dragValue}
-        {selectedMuscle}
+        <WorkoutStatic header={'Welome to '} title = {['THE', 'Danger', 'Zone']}>
+
+        </WorkoutStatic>
+        {/* {dragValue}
+        {selectedMuscle} */}
     </div>
   )
 }
