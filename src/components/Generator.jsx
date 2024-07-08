@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 import SectionWrapper from './SectionWrapper';
+import Drag from './Drag';
 import { WORKOUTS } from '../utils/soldier'
 import { split } from 'postcss/lib/list';
 import Workout from './Workout';
 
-export default function Generator() {
-  
-  const [split, setsplit] = useState('individual');
-  // const [splitvalue, setsplitvalue] = useState('');
-  const [dropdowncontent, setdropdowncontent] = useState([]);
-  const [isDropdownVisible, setisDropdownVisible] = useState(false);
+export default function Generator(props) {
+
+  const {split, setsplit, dropdowncontent, setdropdowncontent, isDropdownVisible, setisDropdownVisible, dragValue, setDragValue,
+            selectedMuscle, setselectedMuscle} = props
 
   const buttonKeys = Object.keys(WORKOUTS) 
 
@@ -32,14 +31,22 @@ export default function Generator() {
     else if(WORKOUTS[value]){
       setdropdowncontent(Object.keys(WORKOUTS[value]));
       setisDropdownVisible(!isDropdownVisible);
-      console.log(Object.keys(WORKOUTS[value]),"you there")
-      console.log( typeof(WORKOUTS[value]), WORKOUTS[value],"you there")
     }
     else{
       setdropdowncontent([]);
       setisDropdownVisible(false);
     }
   }
+
+  const handleSelectedMuscle = (value) => {
+    setselectedMuscle((existingArray) => {
+      if (existingArray.includes(value)){
+        return existingArray
+      }
+      return([...existingArray, value])
+    })
+  } 
+
    
   
   function Header(props){
@@ -75,7 +82,7 @@ export default function Generator() {
               {
                 isDropdownVisible && (
                   dropdowncontent.map((element, index) => (
-                    <div key = {index} className='bg-slate-950 px-10 py-5 rounded-md text-xl w-full'>
+                    <div key = {index} className='bg-slate-950 px-10 py-5 rounded-md text-xl w-full' onClick={() => handleSelectedMuscle(element)}>
                       {element}
                     </div>
                   )
@@ -89,9 +96,10 @@ export default function Generator() {
   }
 
   return (
-    <SectionWrapper header={'generate your workout'} title = {['it\'s', 'huge', 'o\'Clock']}>
+    <SectionWrapper header={'generate your workout'} title = {['it\'s', 'huge', 'o\'Clock']} >
           <Header index = {'01'} title = {'pick your poison'} description = {'Select the workout you wish to endure.'} />
           <Header2 index = {'02'} title = {'Lock on Targets'} description = {'Select the muscles judged for annihilation'} />
+          <Drag index = {'03'} title = {'Become Judgement'} description = {'Select your ultimate goal'} dragValue= {dragValue} setDragValue= {setDragValue} />
     </SectionWrapper>
   
   );

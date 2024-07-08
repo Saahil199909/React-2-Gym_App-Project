@@ -1,9 +1,9 @@
 import React from 'react'
-import Drag from './Drag'
 
 export default function SectionWrapper(props) {
 
-    const {children, children2, header, title} = props
+    const {children, children2, drag, header, title} = props
+
     return (
         <section className='min-h-screen'>
             <div className='bg-slate-950 flex flex-col items-center py-10 gap-5 text-center'>
@@ -19,7 +19,10 @@ export default function SectionWrapper(props) {
             <div>
                 {children2}
             </div>
-            <Drag index = {'03'} title = {'Become Judgement'} description = {'Select your ultimate goal'}/>
+
+            <div> {drag} </div>
+            
+            
         </section>
   )
 }

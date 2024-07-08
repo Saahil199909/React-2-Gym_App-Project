@@ -2,9 +2,7 @@ import React, { useState, useRef } from 'react'
 import Draggable from 'react-draggable';
 
 export default function Drag(props) {
-    const {index, title, description} = props;
-
-    const [dragValue, setDragValue] = useState('hypertrophy')
+    const {index, title, description, dragValue, setDragValue} = props;
 
     const handleDrag = (e, data) => {
         const parentWidth = data.node.parentNode.offsetWidth;
