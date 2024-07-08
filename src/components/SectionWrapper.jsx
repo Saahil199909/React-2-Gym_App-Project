@@ -2,7 +2,8 @@ import React from 'react'
 
 export default function SectionWrapper(props) {
 
-    const {children, header, title} = props
+    const {children, children2, drag, header, title} = props
+
     return (
         <section className='min-h-screen'>
             <div className='bg-slate-950 flex flex-col items-center py-10 gap-5 text-center'>
@@ -14,6 +15,14 @@ export default function SectionWrapper(props) {
             <div>
                 {children}
             </div>
+
+            <div>
+                {children2}
+            </div>
+
+            <div> {drag} </div>
+            
+            
         </section>
   )
 }
