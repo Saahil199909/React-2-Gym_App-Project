@@ -1265,6 +1265,23 @@ export const EXERCISES = {
         description: 'Seated with a restaint above your knees, you want to plantar flex your toes, pushing your knees away from the ground.',
         substitutes: ['standing calf raises']
     },
+    dumbell_calf_raises: {
+        type: 'accessory',
+        meta: {
+            environment: 'gymhome',
+            level: [0, 1, 2],
+            equipment: []
+        },
+        variants: {
+            toes_in: 'Face your toes 30 degrees inwards from forwards while completing this movement.',
+            standard: 'Ensure your feet are directioned forward and shoulder width apart.',
+            toes_out: 'Face your toes 30 degrees outwards from forwards while completing this movement.'
+        },
+        unit: 'reps', //vs duration    
+        muscles: ['calves'],
+        description: 'Seated with a restaint above your knees, you want to plantar flex your toes, pushing your knees away from the ground.',
+        substitutes: ['standing calf raises']
+    },
     standing_calf_raises: {
         type: 'accessory',
         meta: {
@@ -1313,6 +1330,18 @@ export const EXERCISES = {
     },
     monster_walks: {
         type: 'accessory',
+        meta: {
+            environment: 'gymhome',
+            level: [0, 1, 2],
+            equipment: ['band']
+        },
+        unit: 'reps', //vs duration    
+        muscles: ['glutes'],
+        description: 'With a band around your knees, squat to a 60 degree knee bend, and crab walk side to side, then dinosaur walk front to back.',
+        substitutes: ['bad girls']
+    },
+    glutes_squats: {
+        type: 'compound',
         meta: {
             environment: 'gymhome',
             level: [0, 1, 2],

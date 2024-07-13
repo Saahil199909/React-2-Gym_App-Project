@@ -8,7 +8,7 @@ import Workout from './Workout';
 export default function Generator(props) {
 
   const {split, setsplit, dropdowncontent, setdropdowncontent, isDropdownVisible, setisDropdownVisible, dragValue, setDragValue,
-            selectedMuscle, setselectedMuscle} = props
+            selectedMuscle, setselectedMuscle, gettingWorkouts} = props
 
   const buttonKeys = Object.keys(WORKOUTS) 
 
@@ -99,7 +99,8 @@ export default function Generator(props) {
     <SectionWrapper header={'generate your workout'} title = {['it\'s', 'huge', 'o\'Clock']} >
           <Header index = {'01'} title = {'pick your poison'} description = {'Select the workout you wish to endure.'} />
           <Header2 index = {'02'} title = {'Lock on Targets'} description = {'Select the muscles judged for annihilation'} />
-          <Drag index = {'03'} title = {'Become Judgement'} description = {'Select your ultimate goal'} dragValue= {dragValue} setDragValue= {setDragValue} />
+          <Drag index = {'03'} title = {'Become Judgement'} description = {'Select your ultimate goal'} dragValue= {dragValue} setDragValue= {setDragValue}
+                            gettingWorkouts= {gettingWorkouts} />
     </SectionWrapper>
   
   );
