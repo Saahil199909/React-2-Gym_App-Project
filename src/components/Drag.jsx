@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react'
 import Draggable from 'react-draggable';
 
 export default function Drag(props) {
-    const {index, title, description, dragValue, setDragValue} = props;
+    const {index, title, description, dragValue, setDragValue, gettingWorkouts} = props;
 
     const handleDrag = (e, data) => {
         const parentWidth = data.node.parentNode.offsetWidth;
@@ -41,7 +41,8 @@ export default function Drag(props) {
                 Selected Value: {dragValue}
             </div>
 
-        <button className='my-10 bg-slate-950 px-8 py-4 rounded-md border-[2px] border-blue-400 blueShadow duration-200'> Formulate </button>
+        <button className='my-10 bg-slate-950 px-8 py-4 rounded-md border-[2px] border-blue-400 blueShadow duration-200' onClick={gettingWorkouts}> 
+                        Formulate </button>
     </div>
   </div>
   )
