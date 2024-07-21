@@ -22,7 +22,7 @@ function App() {
 
 
   return (
-    <main className='min-h-screen flex flex-col bg-gradient-to-r from-slate-800 to-slate-950 text-white'>
+    <main className='min-h-screen flex flex-col bg-gradient-to-r from-red-800 to-slate-950 text-white'>
       <Hero />
       <Generator split= {split} setsplit={setsplit} dropdowncontent= {dropdowncontent} setdropdowncontent= {setdropdowncontent} 
                     isDropdownVisible= {isDropdownVisible} setisDropdownVisible= {setisDropdownVisible}
