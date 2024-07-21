@@ -1,0 +1,42 @@
+name: Deploy Gym App
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Login to DockerHub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build Docker image
+        run: |
+          docker build -t gym-app-image .
+          docker save gym-app-image > gym-app-image.tar
+
+      - name: SSH into server and load image
+        uses: appleboy/ssh-action@v0.1.0
+        with:
+          host: 127.0.0.1
+          username: hexa3
+          port: ${{ secrets.SSH_TUNNEL_PORT }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            # mkdir -p /path/to/deployment/folder
+            cd /home/hexa3/Documents/Practice/Frontend/react/cicd-gym-app/React-2-Gym_App-Project/
+            docker load -i gym-app-image.tar
+            docker-compose down
+            docker-compose up -d
