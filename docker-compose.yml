@@ -1,0 +1,7 @@
+version: '3.8'
+
+services:
+  test-service-compose:
+    image: gym-app-image
+    ports: 
+      - "7001:2001"
