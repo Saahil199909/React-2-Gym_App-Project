@@ -31,7 +31,7 @@ jobs:
         uses: appleboy/ssh-action@v0.1.0
         with:
           host: 127.0.0.1
-          username: local-user
+          username: hexa3
           port: ${{ secrets.SSH_TUNNEL_PORT }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
