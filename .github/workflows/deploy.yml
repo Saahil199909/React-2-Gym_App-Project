@@ -30,12 +30,11 @@ jobs:
       - name: SSH into server and load image
         uses: appleboy/ssh-action@v0.1.0
         with:
-          host: 127.0.0.1
+          host: ${{ secrets.SERVEO_HOST }}
           username: hexa3
-          port: ${{ secrets.SSH_TUNNEL_PORT }}
+          port: 22
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            # mkdir -p /path/to/deployment/folder
             cd /home/hexa3/Documents/Practice/Frontend/react/cicd-gym-app/React-2-Gym_App-Project/
             docker load -i gym-app-image.tar
             docker-compose down
