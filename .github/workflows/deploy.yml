@@ -30,7 +30,7 @@ jobs:
       - name: SSH into server and load image
         uses: appleboy/ssh-action@v0.1.0
         with:
-          host: ${{ secrets.SERVEO_HOST }}
+          host: 3167242cff9e305e87328d143da63780.serveo.net
           username: hexa3
           port: 22
           key: ${{ secrets.SSH_PRIVATE_KEY }}
