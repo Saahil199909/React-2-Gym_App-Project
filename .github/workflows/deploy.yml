@@ -39,7 +39,4 @@ jobs:
             docker load -i gym-app-image.tar
             docker-compose down
             docker-compose up -d
-
-
-
-
+          debug: true
