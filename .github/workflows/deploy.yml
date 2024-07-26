@@ -76,19 +76,10 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-      - name: Add SSH Key to Known Hosts
-        run: |
-          mkdir -p ~/.ssh
-          ssh-keyscan -H f5bd0480dc8a72b48137192478d1beb6.serveo.net >> ~/.ssh/known_hosts
-
-      - name: Debug SSH Connection
-        run: |
-          ssh -vvv -i ~/.ssh/id_rsa -p 22 hexa3@f5bd0480dc8a72b48137192478d1beb6.serveo.net
-
       - name: SSH into server and load image
         uses: appleboy/ssh-action@v0.1.0
         with:
-          host: f5bd0480dc8a72b48137192478d1beb6.serveo.net
+          host: 4ff5-152-58-42-1.ngrok-free.app  # Replace with your actual ngrok URL
           username: hexa3
           port: 22
           key: ${{ secrets.SSH_PRIVATE_KEY }}
