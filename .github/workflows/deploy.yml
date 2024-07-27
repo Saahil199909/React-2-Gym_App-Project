@@ -30,9 +30,9 @@ jobs:
       - name: SSH into server and load image
         uses: appleboy/ssh-action@v0.1.0
         with:
-          host: 56b38a3f46770df2c7a2a91430c90711.serveo.net
+          host: 0.tcp.in.ngrok.io
           username: hexa3
-          port: 22
+          port: 17699
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd /home/hexa3/Documents/Practice/Frontend/react/cicd-gym-app/React-2-Gym_App-Project/
