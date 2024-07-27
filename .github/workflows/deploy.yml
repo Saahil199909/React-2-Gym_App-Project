@@ -38,6 +38,6 @@ jobs:
               export PATH=$PATH:/usr/bin
               cd /home/hexa3/Documents/Practice/Frontend/react/cicd-gym-app/React-2-Gym_App-Project/
               docker pull ${{ secrets.DOCKER_USERNAME }}/gym-app-image:latest
-              docker-compose down
-              docker-compose up -d
+              docker compose down
+              docker compose up -d
           debug: true
