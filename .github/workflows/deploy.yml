@@ -32,10 +32,10 @@ jobs:
         with:
           host: 0.tcp.in.ngrok.io
           username: hexa3
-          port: 17699
+          port: 16827
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: | 
               export PATH=$PATH:/usr/bin
               docker pull ${{ secrets.DOCKER_USERNAME }}/gym-app-image
-              docker run -it -d -p 3234:2001 saahil199909/gym-app-image
+              docker run -it -d -p 3234:2001 ${{ secrets.DOCKER_USERNAME }}/gym-app-image
           debug: true
