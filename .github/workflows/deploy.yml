@@ -24,8 +24,8 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t gym-app-image .
-          docker save gym-app-image > gym-app-image.tar
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/gym-app-image:latest .
+          docker push ${{ secrets.DOCKER_USERNAME }}/gym-app-image:latest
 
       - name: SSH into server and load image
         uses: appleboy/ssh-action@v0.1.0
@@ -34,12 +34,9 @@ jobs:
           username: hexa3
           port: 17699
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: |
-            # set -x  # Enable command tracing
-            # ssh -i /path/to/your/private_key -vvv hexa3@0.tcp.in.ngrok.io -p 17699 << 'EOF'
+          script: | 
               cd /home/hexa3/Documents/Practice/Frontend/react/cicd-gym-app/React-2-Gym_App-Project/
-              docker load -i gym-app-image.tar
+              docker pull ${{ secrets.DOCKER_USERNAME }}/gym-app-image:latest
               docker-compose down
               docker-compose up -d
-            EOF
           debug: true
