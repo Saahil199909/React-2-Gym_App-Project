@@ -35,8 +35,8 @@ jobs:
           port: 17699
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            set -x  # Enable command tracing
-            ssh -i /path/to/your/private_key -vvv hexa3@0.tcp.in.ngrok.io -p 17699 << 'EOF'
+            # set -x  # Enable command tracing
+            # ssh -i /path/to/your/private_key -vvv hexa3@0.tcp.in.ngrok.io -p 17699 << 'EOF'
               cd /home/hexa3/Documents/Practice/Frontend/react/cicd-gym-app/React-2-Gym_App-Project/
               docker load -i gym-app-image.tar
               docker-compose down
