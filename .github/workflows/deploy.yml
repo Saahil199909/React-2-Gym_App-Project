@@ -38,4 +38,7 @@ jobs:
               export PATH=$PATH:/usr/bin
               docker pull ${{ secrets.DOCKER_USERNAME }}/gym-app-image
               docker run -it -d -p 3234:2001 ${{ secrets.DOCKER_USERNAME }}/gym-app-image
+              sleep 30
           debug: true
+          timeout: 60s
+          command_timeout: 15m
