@@ -10,6 +10,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     host: '0.0.0.0',
-    port: process.env.PORT,  // Set your custom port here
+    port: 2001
+    // port: process.env.PORT,  // Set your custom port here
   },
 })

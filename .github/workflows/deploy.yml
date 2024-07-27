@@ -36,8 +36,9 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: | 
               export PATH=$PATH:/usr/bin
-              cd /home/hexa3/Documents/Practice/Frontend/react/cicd-gym-app/React-2-Gym_App-Project/
+              # cd /home/hexa3/Documents/Practice/Frontend/react/cicd-gym-app/React-2-Gym_App-Project/
               docker pull ${{ secrets.DOCKER_USERNAME }}/gym-app-image:latest
-              docker compose down
-              docker compose up -d
+              docker stop gym-app-container-100
+              docker rm gym-app-container-100
+              docker run -it -d --name gym-app-container-100 -p 3005:2001 ${{ secrets.DOCKER_USERNAME }}/gym-app-image:latest
           debug: true
