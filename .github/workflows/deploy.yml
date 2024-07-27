@@ -32,13 +32,12 @@ jobs:
         with:
           host: 0.tcp.in.ngrok.io
           username: hexa3
-          port: 16827
+          port: 12922
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: | 
               export PATH=$PATH:/usr/bin
-              docker pull ${{ secrets.DOCKER_USERNAME }}/gym-app-image
-              docker run -it -d -p 3234:2001 ${{ secrets.DOCKER_USERNAME }}/gym-app-image
-              sleep 30
+              cd /home/hexa3/Documents/Practice/Frontend/react/cicd-gym-app/React-2-Gym_App-Project/
+              docker pull ${{ secrets.DOCKER_USERNAME }}/gym-app-image:latest
+              docker compose down
+              docker compose up -d
           debug: true
-          timeout: 60s
-          command_timeout: 15m
